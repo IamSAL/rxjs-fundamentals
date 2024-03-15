@@ -1,4 +1,4 @@
-import { from, of } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 
 describe('Exercise: Creating Observables', () => {
   describe(of, () => {
@@ -130,4 +130,20 @@ describe('Exercise: Creating Observables', () => {
       done();
     });
   });
+
+  describe("constructor", () => {
+    it('should create a custom observable', (done) => {
+      const result = []
+      const observable$ = new Observable((subscriber) => {
+        subscriber.next("Messi")
+        subscriber.next("Xavi")
+        subscriber.next("Pique")
+        subscriber.next("Iniesta")
+        subscriber.complete()
+      })
+      observable$.subscribe((val) => result.push(val))
+      expect(result).toEqual(["Messi","Xavi","Pique","Iniesta"])
+      done();
+    })
+  })
 });

@@ -10,6 +10,7 @@ import {
   merge,
   from,
   pluck,
+  first,
 } from 'rxjs';
 
 import { fromFetch } from 'rxjs/fetch';
@@ -19,6 +20,7 @@ import {
   clearResults,
   endpoint,
   endpointFor,
+  renderPokemon,
   search,
 } from '../pokemon/utilities';
 
@@ -36,4 +38,6 @@ const search$ = fromEvent(search, 'input').pipe(
   tap(addResults),
 );
 
-search$.subscribe(console.log);
+
+
+search2$.subscribe(console.log);
